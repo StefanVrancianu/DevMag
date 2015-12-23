@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "name": "Cozonac",
+    "description": "Cozonac ca la mama acasa",
+    "qty": 10,
+    "price": 19.99,
+    "photos": "cozonac.jpg"
+    
+  },
+  {
+    "id": 2,
+    "name": "Sarmale",
+    "description": "Sarmale in foi de varza",
+    "qty": 20,
+    "price": 5.99,
+    "photos": "sarma.jpg"
+  }
+]

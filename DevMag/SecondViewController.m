@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "AppDelegate.h"
 
 @interface SecondViewController ()
 
@@ -19,9 +20,24 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+//    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)logoutButton:(id)sender {
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
 }
 
 @end

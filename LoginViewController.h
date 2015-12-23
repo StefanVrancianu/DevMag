@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  LoginViewController.h
 //  DevMag
 //
 //  Created by Stefan Vrancianu on 17/12/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+@interface LoginViewController : UIViewController
 
 @end
-
