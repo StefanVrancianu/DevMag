@@ -11,6 +11,8 @@
 
 @interface SecondViewController ()
 
+@property (nonatomic, assign) BOOL logat;
+
 @end
 
 @implementation SecondViewController
@@ -20,11 +22,17 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void) saveLogInfo {
     
-//    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:self.logat forKey:@"kLogInfo"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) removeObjectForKey {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"kLogInfo"];
+    [userDefaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +42,10 @@
 
 
 - (IBAction)logoutButton:(id)sender {
+    
+    [self removeObjectForKey];
+    self.logat = TRUE;
+    [self saveLogInfo];
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];

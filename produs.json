@@ -4,7 +4,7 @@
     "name": "Cozonac",
     "description": "Cozonac ca la mama acasa",
     "qty": 10,
-    "price": 19.99,
+    "price": "19.99",
     "photos": "cozonac.jpg"
     
   },
@@ -13,7 +13,7 @@
     "name": "Sarmale",
     "description": "Sarmale in foi de varza",
     "qty": 20,
-    "price": 5.99,
+    "price": "5.99",
     "photos": "sarma.jpg"
   }
 ]

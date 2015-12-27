@@ -14,8 +14,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *userTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passTextField;
 @property (weak, nonatomic) IBOutlet UILabel *alertWrongUserLabel;
+@property (nonatomic, assign) BOOL logat;
 
 @end
+
+static NSString *userName = @"Stefan";
+static NSString *passWord = @"mafiotu";
 
 @implementation LoginViewController
 
@@ -23,10 +27,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+}
+
+- (void) saveLogInfo {
     
-    
-    
-    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:self.logat forKey:@"kLogInfo"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void) removeObjectForKey {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"kLogInfo"];
+    [userDefaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,12 +58,21 @@
 */
 - (IBAction)loginButton:(id)sender {
     
-//    FirstViewController *fvc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([FirstViewController class])];
-//    
-//    [self.navigationController pushViewController:fvc animated:YES];
+    if([self.userTextField.text isEqualToString:userName] && [self.passTextField.text isEqualToString:passWord]) {
+        
+        [self removeObjectForKey];
+        self.logat = FALSE;
+        [self saveLogInfo];
+        
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        
+    }
+    else {
+        [self.alertWrongUserLabel setText:@"Incorrect username or password !"];
+    }
     
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+
 
     
 }

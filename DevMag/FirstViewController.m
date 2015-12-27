@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSMutableArray *produse;
 @property (nonatomic, strong) NSArray *jsonArray;
 
-
 @end
 
 @implementation FirstViewController
@@ -26,10 +25,8 @@
     [self parseJSON];
     [self makeProducts];
     
-
-    
-    
 }
+
         //----------------------------------    Parsarea JSON    --------------------------------------//
 
 - (void) parseJSON {
@@ -51,8 +48,8 @@
         prod.pId = [[self.jsonArray objectAtIndex:i] objectForKey:@"id"];
         prod.pName = [[self.jsonArray objectAtIndex:i] objectForKey:@"name"];
         prod.pDescription = [[self.jsonArray objectAtIndex:i] objectForKey:@"description"];
-        prod.pQuantity = (long)[[self.jsonArray objectAtIndex:i] objectForKey:@"qty"];
-        prod.pPrice = (long)[[self.jsonArray objectAtIndex:i] objectForKey:@"price"];
+        prod.pQuantity = [[[self.jsonArray objectAtIndex:i] objectForKey:@"qty"] integerValue];
+        prod.pPrice = [[self.jsonArray objectAtIndex:i] objectForKey:@"price"];
         prod.pPictures = [[self.jsonArray objectAtIndex:i] objectForKey:@"photos"];
         [self.produse addObject:prod];
         
@@ -94,7 +91,8 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *message = [NSString stringWithFormat:@"Pret: %@\nCantitate: %@", [[self.produse objectAtIndex:indexPath.row] pPrice], [[self.produse objectAtIndex:indexPath.row] pQuantity]];
+    
+    NSString *message = [NSString stringWithFormat:@"Pret: %@\nCantitate: %ld", [[self.produse objectAtIndex:indexPath.row] pPrice], [[self.produse objectAtIndex:indexPath.row] pQuantity]];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Detalii produs" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
