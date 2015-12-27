@@ -11,8 +11,7 @@
 
 
 @interface LoginViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *userTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passTextField;
+
 @property (weak, nonatomic) IBOutlet UILabel *alertWrongUserLabel;
 @property (nonatomic, assign) BOOL logat;
 
@@ -23,9 +22,19 @@ static NSString *passWord = @"mafiotu";
 
 @implementation LoginViewController
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [self.userTextField resignFirstResponder];
+    [self.passTextField resignFirstResponder];
+    
+    
+    return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.userTextField.delegate = self;
+    self.passTextField.delegate = self;
     
 }
 
