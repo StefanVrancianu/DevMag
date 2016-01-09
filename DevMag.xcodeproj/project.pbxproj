@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3ED1922A95123BCF2C529EE5 /* libPods-DevMag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1360E4A3488E2C168F492B0 /* libPods-DevMag.a */; };
 		876863951C24E99000539B5B /* produs.json in Resources */ = {isa = PBXBuildFile; fileRef = 876863941C24E99000539B5B /* produs.json */; };
+		876FE4451C3C78B6008A8429 /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */; };
 		8776A0BC1C233A3600305689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8776A0BB1C233A3600305689 /* main.m */; };
 		8776A0BF1C233A3600305689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8776A0BE1C233A3600305689 /* AppDelegate.m */; };
 		8776A0C21C233A3600305689 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8776A0C11C233A3600305689 /* FirstViewController.m */; };
@@ -39,7 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		008C92AE01074CC0C407677D /* Pods-DevMag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevMag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevMag/Pods-DevMag.debug.xcconfig"; sourceTree = "<group>"; };
 		876863941C24E99000539B5B /* produs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = produs.json; sourceTree = "<group>"; };
+		876FE4431C3C78B6008A8429 /* UIColor+MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MyColor.h"; sourceTree = "<group>"; };
+		876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
 		8776A0B71C233A3600305689 /* DevMag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevMag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8776A0BB1C233A3600305689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8776A0BD1C233A3600305689 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +67,8 @@
 		8776A0F11C233AB300305689 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8776A0F51C233F2B00305689 /* Produs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Produs.h; sourceTree = "<group>"; };
 		8776A0F61C233F2B00305689 /* Produs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Produs.m; sourceTree = "<group>"; };
+		BD4A02943EFEC0AFAD369F0B /* Pods-DevMag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevMag.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevMag/Pods-DevMag.release.xcconfig"; sourceTree = "<group>"; };
+		D1360E4A3488E2C168F492B0 /* libPods-DevMag.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevMag.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED1922A95123BCF2C529EE5 /* libPods-DevMag.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +97,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6449F2329DC4B67B1174FF29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1360E4A3488E2C168F492B0 /* libPods-DevMag.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7865A4E0F7D172358E75C7C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				008C92AE01074CC0C407677D /* Pods-DevMag.debug.xcconfig */,
+				BD4A02943EFEC0AFAD369F0B /* Pods-DevMag.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8776A0AE1C233A3600305689 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +126,8 @@
 				8776A0D61C233A3600305689 /* DevMagTests */,
 				8776A0E11C233A3600305689 /* DevMagUITests */,
 				8776A0B81C233A3600305689 /* Products */,
+				7865A4E0F7D172358E75C7C5 /* Pods */,
+				6449F2329DC4B67B1174FF29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +155,8 @@
 				8776A0CB1C233A3600305689 /* LaunchScreen.storyboard */,
 				8776A0CE1C233A3600305689 /* Info.plist */,
 				8776A0BA1C233A3600305689 /* Supporting Files */,
+				876FE4431C3C78B6008A8429 /* UIColor+MyColor.h */,
+				876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */,
 			);
 			path = DevMag;
 			sourceTree = "<group>";
@@ -165,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8776A0E71C233A3600305689 /* Build configuration list for PBXNativeTarget "DevMag" */;
 			buildPhases = (
+				E14822E12232BA792BCB3426 /* Check Pods Manifest.lock */,
 				8776A0B31C233A3600305689 /* Sources */,
 				8776A0B41C233A3600305689 /* Frameworks */,
 				8776A0B51C233A3600305689 /* Resources */,
+				179F05C8524CB14075B3DBA8 /* Embed Pods Frameworks */,
+				CC0F9D355F1C13D54E49744F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,6 +257,7 @@
 				TargetAttributes = {
 					8776A0B61C233A3600305689 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = K3L2N7R4NQ;
 					};
 					8776A0D21C233A3600305689 = {
 						CreatedOnToolsVersion = 7.2;
@@ -284,12 +317,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		179F05C8524CB14075B3DBA8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevMag/Pods-DevMag-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC0F9D355F1C13D54E49744F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevMag/Pods-DevMag-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E14822E12232BA792BCB3426 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8776A0B31C233A3600305689 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8776A0C51C233A3600305689 /* SecondViewController.m in Sources */,
+				876FE4451C3C78B6008A8429 /* UIColor+MyColor.m in Sources */,
 				8776A0BF1C233A3600305689 /* AppDelegate.m in Sources */,
 				8776A0C21C233A3600305689 /* FirstViewController.m in Sources */,
 				8776A0BC1C233A3600305689 /* main.m in Sources */,
@@ -431,23 +513,33 @@
 		};
 		8776A0E81C233A3600305689 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 008C92AE01074CC0C407677D /* Pods-DevMag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DevMag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Dev.DevMag;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.DevMagazin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		8776A0E91C233A3600305689 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD4A02943EFEC0AFAD369F0B /* Pods-DevMag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DevMag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Dev.DevMag;
+				PRODUCT_BUNDLE_IDENTIFIER = Dev.DevMagazin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

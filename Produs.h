@@ -14,7 +14,7 @@
 @property (nonatomic, weak) NSNumber *pId;
 @property (nonatomic, weak) NSString *pDescription;
 @property (nonatomic) NSInteger pQuantity;
-@property (nonatomic, weak) NSString *pPrice;
+@property (nonatomic, weak) NSNumber *pPrice;
 @property (nonatomic, strong) NSMutableArray *pPictures;
 
 

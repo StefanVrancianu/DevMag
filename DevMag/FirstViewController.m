@@ -9,11 +9,14 @@
 #import "FirstViewController.h"
 #import "Produs.h"
 #import "AppDelegate.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface FirstViewController ()
 
 @property (nonatomic, strong) NSMutableArray *produse;
 @property (nonatomic, strong) NSArray *jsonArray;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
@@ -22,45 +25,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self parseJSON];
-    [self makeProducts];
+
+        //--------------------------  Accesarea requestului + parsare + trimiterea datelor in celule --------------------------//
     
-}
-
-        //----------------------------------    Parsarea JSON    --------------------------------------//
-
-- (void) parseJSON {
+    self.dataSource = [[NSMutableArray alloc] init];
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"produs" ofType:@"json"];
-    NSString *myJSON = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
-    NSError *error =  nil;
-    self.jsonArray = [NSJSONSerialization JSONObjectWithData:[myJSON dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&error];
-}
+    AFHTTPRequestOperationManager *manager = [self getRequestOperationManager];
+    NSString *url = @"http://demo3723180.mockable.io/GetProducts";
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject)
+    {
+        if([responseObject isKindOfClass:[NSArray class]])
+        {   self.dataSource = responseObject;
+            [self.tableViewColor reloadData];
+//            NSLog(@"%@", [[self.dataSource objectAtIndex:0 ] objectForKey:@"name"]);
 
-        //----------------------------------    Crearea obiectelor    --------------------------------------//
-
-- (void) makeProducts {
-   
-    self.produse = [[NSMutableArray alloc] init];
-    for(int i=0; i < [self.jsonArray count]; i++){
-        
-        Produs *prod = [[Produs alloc] init];
-        prod.pId = [[self.jsonArray objectAtIndex:i] objectForKey:@"id"];
-        prod.pName = [[self.jsonArray objectAtIndex:i] objectForKey:@"name"];
-        prod.pDescription = [[self.jsonArray objectAtIndex:i] objectForKey:@"description"];
-        prod.pQuantity = [[[self.jsonArray objectAtIndex:i] objectForKey:@"qty"] integerValue];
-        prod.pPrice = [[self.jsonArray objectAtIndex:i] objectForKey:@"price"];
-        prod.pPictures = [[self.jsonArray objectAtIndex:i] objectForKey:@"photos"];
-        [self.produse addObject:prod];
-        
+        }
     }
-
+    failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        
+        //Cod...
+    }];
+    
 }
+
+    //-------------------- Functia pentru AFNetworking Manager ---------------------//
+
+- (AFHTTPRequestOperationManager *) getRequestOperationManager {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    return manager;
+}
+
+
 
         //----------------------------------    Numarul de randuri din sectiune    --------------------------------------//
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.produse count];
+    return [self.dataSource count];
 }
 
 
@@ -76,12 +78,24 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
-    UIImage *imagine = [UIImage imageNamed:[NSString stringWithFormat:@"%@", [[self.produse objectAtIndex:indexPath.row]pPictures ]]];
+    cell.textLabel.text = [[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"name"];
+    cell.detailTextLabel.text = [[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"description"];
+
     
+    NSURL *urll = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [[self.dataSource objectAtIndex:indexPath.row ] objectForKey:@"photos"]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:urll];
+    UIImage *placeholderImage = [UIImage imageNamed:@"your_placeholder"];
     
-    cell.textLabel.text = [[self.produse objectAtIndex:indexPath.row] pName];
-    cell.detailTextLabel.text = [[self.produse objectAtIndex:indexPath.row] pDescription];
-    cell.imageView.image = imagine;
+    __weak UITableViewCell *weakCell = cell;
+    
+    [cell.imageView setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       
+                                       weakCell.imageView.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
     
     
     return cell;
@@ -92,7 +106,7 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    NSString *message = [NSString stringWithFormat:@"Pret: %@\nCantitate: %ld", [[self.produse objectAtIndex:indexPath.row] pPrice], [[self.produse objectAtIndex:indexPath.row] pQuantity]];
+    NSString *message = [NSString stringWithFormat:@"Pret: %.2f\nCantitate: %ld", [[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"price"] floatValue] , [[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"qty"] integerValue]];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Detalii produs" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
@@ -105,5 +119,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

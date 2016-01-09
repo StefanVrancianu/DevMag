@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "86A5B3DABA47F333A0C29E4BD79B1C2A4CBE1A6A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "86A5B3DABA47F333A0C29E4BD79B1C2A4CBE1A6A" : 0,
+    "60F634ACF32E7F3C512D0D9672409E1962B65CB3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "35E46163-867F-4F4C-977D-66A780961945",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "86A5B3DABA47F333A0C29E4BD79B1C2A4CBE1A6A" : "DevMag\/",
+    "60F634ACF32E7F3C512D0D9672409E1962B65CB3" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DevMag",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DevMag.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/StefanVrancianu\/warcards-stefan.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "60F634ACF32E7F3C512D0D9672409E1962B65CB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/StefanVrancianu\/DevMag.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "86A5B3DABA47F333A0C29E4BD79B1C2A4CBE1A6A"
+    }
+  ]
+}

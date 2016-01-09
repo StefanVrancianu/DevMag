@@ -10,6 +10,7 @@
 
 @interface FirstViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableViewColor;
 
 @end
 

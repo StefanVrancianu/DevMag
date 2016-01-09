@@ -10,6 +10,15 @@
 
 @interface SecondViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *settingsPageLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *changeThemeLabel;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *changeThemeButton;
+
+@property (strong, nonatomic) IBOutlet UIView *settingsView;
 
 @end
 

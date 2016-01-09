@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 #import "AppDelegate.h"
+#import "UIColor+MyColor.h"
 
 @interface SecondViewController ()
 
@@ -40,6 +41,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) changeTheme1 {
+    
+    [self.tabBarController.tabBar setBackgroundColor:[UIColor redColor]];
+    [self.logoutButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.settingsPageLabel setTextColor:[UIColor redColor]];
+    [self.changeThemeLabel setTextColor:[UIColor redColor]];
+    [self.changeThemeButton setTintColor:[UIColor redColor]];
+    [self.logoutButton setBackgroundColor:[UIColor myRed]];
+    
+    
+}
+
+
+- (void) changeTheme2 {
+    
+    [self.tabBarController.tabBar setBackgroundColor:[UIColor blueColor]];
+    [self.logoutButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.settingsPageLabel setTextColor:[UIColor blueColor]];
+    [self.changeThemeLabel setTextColor:[UIColor blueColor]];
+    [self.changeThemeButton setTintColor:[UIColor blueColor]];
+    [self.logoutButton setBackgroundColor:[UIColor myBlue]];
+
+    
+}
+
 
 - (IBAction)logoutButton:(id)sender {
     
@@ -49,6 +75,22 @@
     
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+}
+- (IBAction)switchTheme:(UISegmentedControl *)sender {
+    
+    if (sender.selectedSegmentIndex == 1) {
+
+        [self changeTheme1];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"changeTabBarControllerBackGr1" object:nil];
+        
+    }else {
+
+        [self changeTheme2];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"changeTabBarControllerBackGr2" object:nil];
+    }
+    
+    
     
 }
 
