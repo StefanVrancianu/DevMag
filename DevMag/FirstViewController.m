@@ -9,8 +9,11 @@
 #import "FirstViewController.h"
 #import "Produs.h"
 #import "AppDelegate.h"
-#import "AFHTTPRequestOperationManager.h"
+#import "AFHTTPSessionManager.h"
 #import "UIImageView+AFNetworking.h"
+#import <PureLayout.h>
+#import "CustomTableViewCell.h"
+#import "DetailsViewController.h"
 
 @interface FirstViewController ()
 
@@ -24,34 +27,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 
+    [self.tableViewColor registerNib:[UINib nibWithNibName:NSStringFromClass([CustomTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([CustomTableViewCell class])];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeTheme1)
+                                                 name:@"changeTabBarControllerBackGr1"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeTheme2)
+                                                 name:@"changeTabBarControllerBackGr2"
+                                               object:nil];
+    
+   
         //--------------------------  Accesarea requestului + parsare + trimiterea datelor in celule --------------------------//
     
     self.dataSource = [[NSMutableArray alloc] init];
     
-    AFHTTPRequestOperationManager *manager = [self getRequestOperationManager];
+    AFHTTPSessionManager *manager = [self getRequestOperationManager];
     NSString *url = @"http://demo3723180.mockable.io/GetProducts";
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject)
+    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionTask * _Nonnull operation, id  _Nonnull responseObject)
     {
         if([responseObject isKindOfClass:[NSArray class]])
         {   self.dataSource = responseObject;
             [self.tableViewColor reloadData];
-//            NSLog(@"%@", [[self.dataSource objectAtIndex:0 ] objectForKey:@"name"]);
-
         }
     }
-    failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    failure:^(NSURLSessionTask * _Nullable operation, NSError * _Nonnull error) {
         
         //Cod...
     }];
+    
     
 }
 
     //-------------------- Functia pentru AFNetworking Manager ---------------------//
 
-- (AFHTTPRequestOperationManager *) getRequestOperationManager {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+- (AFHTTPSessionManager *) getRequestOperationManager {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     return manager;
@@ -66,33 +80,35 @@
 }
 
 
-
         //----------------------------------    Crearea celulelor    --------------------------------------//
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = @"Identifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CustomTableViewCell class])];
     
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[CustomTableViewCell alloc] init];
     }
     
-    cell.textLabel.text = [[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"name"];
-    cell.detailTextLabel.text = [[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"description"];
-
+    Produs *product        =   [[Produs alloc] initWithDictionary:[self.dataSource objectAtIndex:indexPath.row]];
     
-    NSURL *urll = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [[self.dataSource objectAtIndex:indexPath.row ] objectForKey:@"photos"]]];
+    cell.nameLabel.text    =   product.pName;
+    cell.priceLabel.text   =   [NSString stringWithFormat:@"%@", product.pPrice];
+    cell.stockLabel.text   =   product.pAvailability;
+    
+    
+    
+    NSURL *urll = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [[[self.dataSource objectAtIndex:indexPath.row ] objectForKey:@"photos"]firstObject]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:urll];
     UIImage *placeholderImage = [UIImage imageNamed:@"your_placeholder"];
     
-    __weak UITableViewCell *weakCell = cell;
+    __weak CustomTableViewCell *weakCell = cell;
     
-    [cell.imageView setImageWithURLRequest:request
+    [cell.imageForCell setImageWithURLRequest:request
                           placeholderImage:placeholderImage
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                        
-                                       weakCell.imageView.image = image;
+                                       weakCell.imageForCell.image = image;
                                        [weakCell setNeedsLayout];
                                        
                                    } failure:nil];
@@ -101,19 +117,33 @@
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 79;
+}
+
         //----------------------------------    Click pe Row    --------------------------------------//
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    NSString *message = [NSString stringWithFormat:@"Pret: %.2f\nCantitate: %ld", [[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"price"] floatValue] , [[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"qty"] integerValue]];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Detalii produs" message:message preferredStyle:(UIAlertControllerStyleAlert)];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}];
-    
-    [alert addAction:okAction];
-    [self presentViewController:alert animated:YES completion:nil];
+    Produs *prod = [[Produs alloc] initWithDictionary:[self.dataSource objectAtIndex:indexPath.row]];
+    DetailsViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([DetailsViewController class])];
+    dvc.product = prod;
+    dvc.navigationItem.title = @"Informatii produs";
+    [self.navigationController pushViewController:dvc animated:YES];
+
 }
+
+- (void) changeTheme1 {
+    
+    [self.navigationController.tabBarController.tabBar setBackgroundColor:[UIColor redColor]];
+}
+
+
+- (void) changeTheme2 {
+    
+    [self.navigationController.tabBarController.tabBar setBackgroundColor:[UIColor blueColor]];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

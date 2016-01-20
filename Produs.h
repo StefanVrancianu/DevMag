@@ -10,12 +10,16 @@
 
 @interface Produs : NSObject
 
-@property (nonatomic, weak) NSString *pName;
-@property (nonatomic, weak) NSNumber *pId;
-@property (nonatomic, weak) NSString *pDescription;
+@property (nonatomic, strong) NSString *pName;
+@property (nonatomic, strong) NSNumber *pId;
+@property (nonatomic, strong) NSString *pDescription;
 @property (nonatomic) NSInteger pQuantity;
-@property (nonatomic, weak) NSNumber *pPrice;
-@property (nonatomic, strong) NSMutableArray *pPictures;
+@property (nonatomic, strong) NSNumber *pPrice;
+@property (nonatomic, strong) NSArray *pPictures;
+@property (nonatomic, strong) NSString *pAvailability;
 
+- (id) initWithName:(NSString *) pName  description:(NSString *) pDescription   pid:(NSNumber *) pID     quantity:(NSInteger) pQuantity    price:(NSNumber *) pPrice   photos:(NSArray *) pPictures     pAvailability:(NSString *) pAvailability;
+
+- (id) initWithDictionary: (NSDictionary *) dictionary;
 
 @end

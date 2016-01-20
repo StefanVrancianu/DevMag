@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3ED1922A95123BCF2C529EE5 /* libPods-DevMag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1360E4A3488E2C168F492B0 /* libPods-DevMag.a */; };
+		870CE0261C4710F800F8B1ED /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 870CE0241C4710F800F8B1ED /* CustomTableViewCell.m */; };
+		870CE0271C4710F800F8B1ED /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870CE0251C4710F800F8B1ED /* CustomTableViewCell.xib */; };
+		870CE02A1C47311500F8B1ED /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870CE0291C47311500F8B1ED /* DetailsViewController.m */; };
 		876863951C24E99000539B5B /* produs.json in Resources */ = {isa = PBXBuildFile; fileRef = 876863941C24E99000539B5B /* produs.json */; };
 		876FE4451C3C78B6008A8429 /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */; };
 		8776A0BC1C233A3600305689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8776A0BB1C233A3600305689 /* main.m */; };
@@ -42,7 +45,12 @@
 
 /* Begin PBXFileReference section */
 		008C92AE01074CC0C407677D /* Pods-DevMag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevMag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevMag/Pods-DevMag.debug.xcconfig"; sourceTree = "<group>"; };
-		876863941C24E99000539B5B /* produs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = produs.json; sourceTree = "<group>"; };
+		870CE0231C4710F800F8B1ED /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = ../CustomTableViewCell.h; sourceTree = "<group>"; };
+		870CE0241C4710F800F8B1ED /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = ../CustomTableViewCell.m; sourceTree = "<group>"; };
+		870CE0251C4710F800F8B1ED /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = ../CustomTableViewCell.xib; sourceTree = "<group>"; };
+		870CE0281C47311500F8B1ED /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		870CE0291C47311500F8B1ED /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		876863941C24E99000539B5B /* produs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = produs.json; path = ../produs.json; sourceTree = "<group>"; };
 		876FE4431C3C78B6008A8429 /* UIColor+MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MyColor.h"; sourceTree = "<group>"; };
 		876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
 		8776A0B71C233A3600305689 /* DevMag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevMag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,10 +71,10 @@
 		8776A0DE1C233A3600305689 /* DevMagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevMagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8776A0E21C233A3600305689 /* DevMagUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevMagUITests.m; sourceTree = "<group>"; };
 		8776A0E41C233A3600305689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8776A0F01C233AB300305689 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		8776A0F11C233AB300305689 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		8776A0F51C233F2B00305689 /* Produs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Produs.h; sourceTree = "<group>"; };
-		8776A0F61C233F2B00305689 /* Produs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Produs.m; sourceTree = "<group>"; };
+		8776A0F01C233AB300305689 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
+		8776A0F11C233AB300305689 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		8776A0F51C233F2B00305689 /* Produs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Produs.h; path = ../Produs.h; sourceTree = "<group>"; };
+		8776A0F61C233F2B00305689 /* Produs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Produs.m; path = ../Produs.m; sourceTree = "<group>"; };
 		BD4A02943EFEC0AFAD369F0B /* Pods-DevMag.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevMag.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevMag/Pods-DevMag.release.xcconfig"; sourceTree = "<group>"; };
 		D1360E4A3488E2C168F492B0 /* libPods-DevMag.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevMag.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -114,14 +122,54 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		872923D51C4EE68700951E05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8776A0F01C233AB300305689 /* LoginViewController.h */,
+				8776A0F11C233AB300305689 /* LoginViewController.m */,
+				8776A0C01C233A3600305689 /* FirstViewController.h */,
+				8776A0C11C233A3600305689 /* FirstViewController.m */,
+				8776A0C31C233A3600305689 /* SecondViewController.h */,
+				8776A0C41C233A3600305689 /* SecondViewController.m */,
+				870CE0281C47311500F8B1ED /* DetailsViewController.h */,
+				870CE0291C47311500F8B1ED /* DetailsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		872923D61C4EE6B100951E05 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				8776A0BD1C233A3600305689 /* AppDelegate.h */,
+				8776A0BE1C233A3600305689 /* AppDelegate.m */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		872923D81C4EE72000951E05 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				876FE4431C3C78B6008A8429 /* UIColor+MyColor.h */,
+				876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */,
+				8776A0F51C233F2B00305689 /* Produs.h */,
+				8776A0F61C233F2B00305689 /* Produs.m */,
+				870CE0231C4710F800F8B1ED /* CustomTableViewCell.h */,
+				870CE0241C4710F800F8B1ED /* CustomTableViewCell.m */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		872923D91C4EE75E00951E05 /* Custom Xib */ = {
+			isa = PBXGroup;
+			children = (
+				870CE0251C4710F800F8B1ED /* CustomTableViewCell.xib */,
+			);
+			name = "Custom Xib";
+			sourceTree = "<group>";
+		};
 		8776A0AE1C233A3600305689 = {
 			isa = PBXGroup;
 			children = (
-				876863941C24E99000539B5B /* produs.json */,
-				8776A0F51C233F2B00305689 /* Produs.h */,
-				8776A0F61C233F2B00305689 /* Produs.m */,
-				8776A0F01C233AB300305689 /* LoginViewController.h */,
-				8776A0F11C233AB300305689 /* LoginViewController.m */,
 				8776A0B91C233A3600305689 /* DevMag */,
 				8776A0D61C233A3600305689 /* DevMagTests */,
 				8776A0E11C233A3600305689 /* DevMagUITests */,
@@ -144,19 +192,16 @@
 		8776A0B91C233A3600305689 /* DevMag */ = {
 			isa = PBXGroup;
 			children = (
-				8776A0BD1C233A3600305689 /* AppDelegate.h */,
-				8776A0BE1C233A3600305689 /* AppDelegate.m */,
-				8776A0C01C233A3600305689 /* FirstViewController.h */,
-				8776A0C11C233A3600305689 /* FirstViewController.m */,
-				8776A0C31C233A3600305689 /* SecondViewController.h */,
-				8776A0C41C233A3600305689 /* SecondViewController.m */,
-				8776A0C61C233A3600305689 /* Main.storyboard */,
-				8776A0C91C233A3600305689 /* Assets.xcassets */,
-				8776A0CB1C233A3600305689 /* LaunchScreen.storyboard */,
-				8776A0CE1C233A3600305689 /* Info.plist */,
+				872923D91C4EE75E00951E05 /* Custom Xib */,
+				872923D81C4EE72000951E05 /* Custom Classes */,
+				872923D61C4EE6B100951E05 /* Delegates */,
+				872923D51C4EE68700951E05 /* Controllers */,
 				8776A0BA1C233A3600305689 /* Supporting Files */,
-				876FE4431C3C78B6008A8429 /* UIColor+MyColor.h */,
-				876FE4441C3C78B6008A8429 /* UIColor+MyColor.m */,
+				8776A0C91C233A3600305689 /* Assets.xcassets */,
+				8776A0C61C233A3600305689 /* Main.storyboard */,
+				8776A0CB1C233A3600305689 /* LaunchScreen.storyboard */,
+				876863941C24E99000539B5B /* produs.json */,
+				8776A0CE1C233A3600305689 /* Info.plist */,
 			);
 			path = DevMag;
 			sourceTree = "<group>";
@@ -297,6 +342,7 @@
 				876863951C24E99000539B5B /* produs.json in Resources */,
 				8776A0CD1C233A3600305689 /* LaunchScreen.storyboard in Resources */,
 				8776A0CA1C233A3600305689 /* Assets.xcassets in Resources */,
+				870CE0271C4710F800F8B1ED /* CustomTableViewCell.xib in Resources */,
 				8776A0C81C233A3600305689 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,6 +422,8 @@
 				8776A0C21C233A3600305689 /* FirstViewController.m in Sources */,
 				8776A0BC1C233A3600305689 /* main.m in Sources */,
 				8776A0F71C233F2B00305689 /* Produs.m in Sources */,
+				870CE02A1C47311500F8B1ED /* DetailsViewController.m in Sources */,
+				870CE0261C4710F800F8B1ED /* CustomTableViewCell.m in Sources */,
 				8776A0F21C233AB300305689 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
