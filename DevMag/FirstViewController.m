@@ -134,13 +134,13 @@
 
 - (void) changeTheme1 {
     
-    [self.navigationController.tabBarController.tabBar setBackgroundColor:[UIColor redColor]];
+    [self.tabBarController.tabBar setBackgroundColor:[UIColor redColor]];
 }
 
 
 - (void) changeTheme2 {
     
-    [self.navigationController.tabBarController.tabBar setBackgroundColor:[UIColor blueColor]];
+    [self.tabBarController.tabBar setBackgroundColor:[UIColor blueColor]];
 
 }
 

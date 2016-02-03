@@ -293,11 +293,11 @@
             </objects>
             <point key="canvasLocation" x="150.13333333333333" y="-550.48666666666668"/>
         </scene>
-        <!--First-->
+        <!--Products-->
         <scene sceneID="GR3-R2-Vap">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RF7-HN-uvk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Products" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NWs-kF-V3Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -315,7 +315,7 @@
     </scenes>
     <resources>
         <image name="background" width="540" height="960"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="first" width="40" height="40"/>
+        <image name="second" width="23" height="23"/>
     </resources>
 </document>
